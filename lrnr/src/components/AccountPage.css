@@ -1,0 +1,110 @@
+.account-page {
+  padding: 80px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 100vh; /* Full viewport height */
+}
+
+.account-container {
+  width: 100%;
+  max-width: 1200px; /* Maximum width for content */
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.account-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center; /* Center the title */
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between items */
+}
+
+.account-row {
+  flex: 1; /* Allow rows to grow equally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 20px;
+  text-align: center; /* Center text content */
+}
+
+.icon {
+  font-size: 50px;
+  color: #70eed5;
+}
+
+.text-content h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.text-content p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.text-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.text-content li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .account-info {
+    flex-direction: column; /* Stack rows vertically on smaller screens */
+    align-items: center;
+  }
+
+  .account-title {
+    text-align: center; /* Center the title on smaller screens */
+  }
+
+  .account-row {
+    width: 100%; /* Full width for each row */
+    max-width: 600px; /* Optional max-width for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .account-page {
+    padding: 20px; /* Reduce padding on smaller screens */
+  }
+
+  .account-title {
+    font-size: 20px; /* Smaller font size for title */
+  }
+
+  .icon {
+    font-size: 40px; /* Smaller icon size */
+  }
+
+  .text-content h2 {
+    font-size: 16px; /* Smaller heading size */
+  }
+
+  .text-content p,
+  .text-content li {
+    font-size: 14px; /* Smaller text size */
+  }
+}
