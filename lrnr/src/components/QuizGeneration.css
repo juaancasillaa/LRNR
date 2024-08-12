@@ -1,0 +1,75 @@
+/* Ensure that the entire viewport height is used */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the start (left) */
+  min-height: 100vh; /* Full viewport height */
+  padding: 80px;
+  box-sizing: border-box;
+  background-color: #ffffff; /* Background color for contrast */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #063661;
+}
+
+.form-group {
+  width: 100%; /* Ensure full-width form groups */
+  margin-bottom: 20px;
+}
+
+.custom-label {
+  display: block;
+  font-size: 2em !important; /* Your desired font size */
+  color: #063661;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  font-weight: bold;
+  color: #1b929c;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #9d9a9a;
+  font-size: 16px;
+  background-color: #fff; /* Background color for visibility */
+}
+
+.form-control:focus {
+  border-color: #063661;
+  outline: none;
+}
+
+.submit-btn {
+  display: block;
+  margin-top: 50px; /* Add space above and below */
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgb(9, 144, 144); /* Changed background color to green */
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start; /* Move button to the left */
+}
+
+.submit-btn:hover {
+  background-color: rgb(6, 149, 116); /* Darker green on hover */
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}

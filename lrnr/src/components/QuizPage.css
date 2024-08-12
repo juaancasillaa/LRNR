@@ -1,0 +1,153 @@
+/* QuizPage.css */
+
+.quiz-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.quiz-page-title {
+  color: #063661;
+  text-align: center;
+}
+
+.quiz-page-description {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quiz-question-container {
+  margin-top: 20px;
+  flex: 1; /* Allow container to expand and fill space */
+}
+
+.quiz-question-text {
+  font-size: 24px;
+  color: #063661;
+}
+
+.quiz-answer-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.quiz-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quiz-next-button,
+.quiz-submit-button {
+  display: block;
+  width: 20%;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1b929c;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20%;
+}
+
+.quiz-next-button:hover,
+.quiz-submit-button:hover {
+  background-color: #2e8bc0;
+}
+
+.quiz-results {
+  margin-top: 20px;
+}
+
+.result-item {
+  margin-bottom: 20px;
+}
+
+.result-item h2 {
+  font-size: 20px;
+  color: #063661;
+}
+
+.result-item p {
+  font-size: 16px;
+  color: #333;
+}
+.results-summary {
+  font-size: 40px;
+}
+
+.loading-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  text-align: center;
+  font-size: 24px;
+  color: #063661;
+  background-color: #f4f4f4; /* Optional: background color for contrast */
+}
+
+.evaluation-container {
+  margin-top: 20px;
+}
+
+.evaluation-feedback {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.evaluation-status {
+  width: 30%;
+}
+
+.evaluation-details {
+  width: 65%;
+}
+
+.status-text {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.status-text.correct {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-text.incorrect {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.evaluation-details p {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.next-button-container {
+  text-align: center; /* Center align the "Next" button */
+  margin-top: 20px; /* Add some space above the button */
+}
+.evaluation-title {
+  color: #1b929c; /* Desired color */
+  font-size: 1.5em; /* Optional: Adjust font size as needed */
+  font-weight: bold;
+  margin-top: 10%;
+  margin-bottom: 5%; /* Optional: Adjust font weight as needed */
+}

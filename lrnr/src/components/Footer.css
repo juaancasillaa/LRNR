@@ -1,0 +1,43 @@
+.page-footer {
+  background-color: #1f7dcf !important;
+}
+
+.footer-copyright {
+  background-color: #042a47;
+  padding: 10px 0;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+h5.white-text {
+  font-size: 18px;
+}
+
+.grey-text.text-lighten-4 {
+  color: #ccc;
+}
+
+a.grey-text.text-lighten-3:hover {
+  color: #2e8bc0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-copyright .container {
+    text-align: center;
+  }
+}
