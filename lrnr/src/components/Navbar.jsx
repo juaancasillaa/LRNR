@@ -3,7 +3,6 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-import Logo from "./image-removebg-preview.png";
 
 const Navbar = () => {
   const [Mobile, setMobile] = useState(false);
@@ -11,7 +10,7 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <Link to="/" className="Quiz">
-          <img src={Logo} alt="" className="logo" />
+          <h1 className="logo">lrnr</h1>
         </Link>
         <ul
           className={Mobile ? "nav-links-mobile" : "nav-links"}
