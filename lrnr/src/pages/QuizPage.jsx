@@ -24,7 +24,7 @@ const QuizPage = () => {
 
   const handleAnswerChange = (event) => {
     const newAnswers = [...userAnswers];
-    newAnswers[currentQuestionIndex] = event.target.value;
+    newAnswers[currentQuestionIndex] = event.target.value; // Update the answer for the current question
     setUserAnswers(newAnswers);
   };
 
@@ -50,18 +50,18 @@ const QuizPage = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${apiKey}`, // Authenticate using the API key
           },
           body: JSON.stringify({
             model: "gpt-3.5-turbo",
             messages: [
-              { role: "system", content: "You are a quiz evaluator." },
+              { role: "system", content: "You are a quiz evaluator." }, //Set System Role
               {
                 role: "user",
                 content: `The question is: "${question}". The user's answer is: "${userAnswer}". Determine if this answer is correct or incorrect. Format your response with the first line as "Correct" or "Incorrect", followed by an explanation of why the answer is correct or incorrect.`,
               },
             ],
-            temperature: 0,
+            temperature: 0, //set the response randomness
           }),
         }
       );
@@ -72,15 +72,15 @@ const QuizPage = () => {
       }
 
       const data = await response.json();
-      const feedback = data.choices[0].message.content.trim();
+      const feedback = data.choices[0].message.content.trim(); // Extract the feedback from the response
 
       // Log the entire feedback for debugging purposes
       console.log("API Feedback:", feedback);
 
       // Extract the first line for correctness and the rest for explanation
       const lines = feedback.split("\n");
-      const correctness = lines[0].toLowerCase().trim();
-      const explanation = lines.slice(1).join("\n").trim();
+      const correctness = lines[0].toLowerCase().trim(); // Get correctness from the first line
+      const explanation = lines.slice(1).join("\n").trim(); // Get the explanation from the remaining lines
 
       // Check if the response indicates correctness
       const isAnswerCorrect = correctness === "correct";
@@ -89,7 +89,7 @@ const QuizPage = () => {
       setEvaluation(explanation);
 
       if (isAnswerCorrect) {
-        setCorrectAnswersCount((prevCount) => prevCount + 1);
+        setCorrectAnswersCount((prevCount) => prevCount + 1); // Increment correct answers count if correct
       }
     } catch (error) {
       setError(
@@ -100,7 +100,7 @@ const QuizPage = () => {
       setLoading(false);
     }
   };
-
+  // Handle moving to the next question
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quiz.numberOfQuestions - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -125,7 +125,7 @@ const QuizPage = () => {
   };
 
   const handleTryAnotherQuiz = () => {
-    navigate("/quiz-selection"); // Update with the correct path for quiz selection
+    navigate("/quiz-generation");
   };
 
   if (!quiz || quiz.questions.length === 0) {
