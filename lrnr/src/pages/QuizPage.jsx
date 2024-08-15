@@ -30,7 +30,7 @@ const QuizPage = () => {
     setUserAnswers(newAnswers);
   };
 
-  // Submit the current answer for evaluation
+  // Submit the current answer for evaluation.
   const handleSubmitAnswer = async () => {
     setLoading(true);
     setError(null);
