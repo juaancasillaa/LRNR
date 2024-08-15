@@ -25,15 +25,8 @@ li {
 }
 
 .logo {
-  display: flex;
-  position: absolute;
-  top: 15px;
-  left: 35px;
-  width: 150px;
-}
-
-.logo:hover {
-  cursor: pointer;
+  color: white;
+  font-size: 50px;
 }
 
 .nav-links {

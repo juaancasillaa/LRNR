@@ -37,6 +37,7 @@
 
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -54,22 +55,10 @@ const Footer = () => {
           <div className="col l4 offset-l2 s12">
             <h5 className="white-text">Links</h5>
             <ul>
-              <li>
-                <a className="grey-text text-lighten-3" href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="grey-text text-lighten-3" href="/quiz-generation">
-                  Quiz Generator
-                </a>
-              </li>
-              <li>
-                <a className="grey-text text-lighten-3" href="/account">
-                  Account
-                </a>
-              </li>
-            </ul>
+              <Link to="/" className="grey-text text-lighten-3"><li>Home</li></Link>
+              <Link to="/quiz-generation" className="grey-text text-lighten-3"><li>Quiz</li></Link>
+              <Link to="/Account" className="grey-text text-lighten-3"><li>Account</li></Link>
+        </ul>
           </div>
         </div>
       </div>
