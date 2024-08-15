@@ -3,115 +3,57 @@ import { useNavigate } from "react-router-dom";
 import "../components/QuizGeneration.css";
 
 const QuizGeneration = ({ setQuiz }) => {
-  const [topic, setTopic] = useState("");
-  const [expertise, setExpertise] = useState("");
-  const [numberOfQuestions, setNumberOfQuestions] = useState("1");
-  const [style, setStyle] = useState("");
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // State variables to store form input and status
+  const [topic, setTopic] = useState(""); // Selected topic for the quiz
+  const [expertise, setExpertise] = useState(""); // Selected expertise level
+  const [numberOfQuestions, setNumberOfQuestions] = useState("1"); // Number of questions in the quiz
+  const [style, setStyle] = useState(""); // Style of the quiz
+  const [error, setError] = useState(null); // Error message if something goes wrong
+  const [loading, setLoading] = useState(false); // Loading state to show spinner or disable button
+  const navigate = useNavigate(); // Hook to programmatically navigate
 
+  // Function to handle form submission
   const handleSubmit = async () => {
-    // Function to handle the quiz generation process when the user submits the form.
+    // Validate required fields
     if (!topic || !expertise || !style) {
       setError("Please fill out all required fields.");
       return;
     }
-
-    setError(null);
-    setLoading(true);
-
+  
+    setError(null); // Clear any previous errors
+    setLoading(true); // Set loading state to true
+  
     try {
-      // Retrieve the OpenAI API key from environment variables.
-      const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-      if (!apiKey) {
-        throw new Error("API key is missing from environment variables.");
-      }
-
-      // Create a prompt string that specifies the quiz generation parameters.
-      const prompt = `Generate a quiz with the following parameters:
-        Topic: ${topic}
-        Expertise Level: ${expertise}
-        Number of Questions: ${numberOfQuestions}
-        Style: ${style}
-
-      Please provide each question in the following format:
-      Question [number]: [Question text]
-      a) Option 1
-      b) Option 2
-      c) Option 3
-      d) Option 4`;
-
-      // Make a POST request to the OpenAI API to generate the quiz.
-      const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: prompt }],
-            temperature: 0.7, // Set the temperature to control randomness in responses.
-          }),
-        }
-      );
-
-      // Check if the response is not successful.
+      // Send form data to the server
+      const response = await fetch("http://localhost:3000/generate-quiz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          topic,
+          expertise,
+          numberOfQuestions,
+          style,
+        }),
+      });
+  
+      // Check if the response is okay
       if (!response.ok) {
         const errorText = await response.text();
         throw new Error(`Failed to generate quiz: ${errorText}`);
       }
-
-      const data = await response.json();
-
-      // Validate the response structure to ensure it contains the expected data.
-      if (
-        !data.choices ||
-        !data.choices[0] ||
-        !data.choices[0].message ||
-        !data.choices[0].message.content
-      ) {
-        throw new Error("Unexpected response format from API.");
-      }
-
-      // Extract the quiz content from the response.
-      const content = data.choices[0].message.content;
-      const questions = content
-        .split("\n\n") // Split the content into individual questions.
-        .filter((section) => section.trim() !== ""); // Filter out empty sections.
-
-      // Create a quiz object with the extracted questions and other details.
-      const quiz = {
-        title: `Quiz on ${topic}`,
-        description: `Quiz on ${topic} with ${expertise} level questions in ${style} style.`,
-        numberOfQuestions: parseInt(numberOfQuestions, 10),
-        questions: questions.map((questionText) => {
-          const lines = questionText
-            .split("\n")
-            .filter((line) => line.trim() !== "");
-          const question = lines[0].replace(/Question \d+: /, "").trim();
-          const options = lines
-            .slice(1)
-            .map((option) => option.replace(/^[a-d]\) /, "").trim());
-
-          return {
-            question,
-            options,
-          };
-        }),
-      };
-
-      // Update the parent component's state with the generated quiz.
+  
+      // Parse the response JSON and set the quiz data
+      const quiz = await response.json();
       setQuiz(quiz);
-      navigate("/quiz", { state: { quiz } }); // Pass quiz data via state
+      navigate("/quiz", { state: { quiz } }); // Navigate to the quiz page with quiz data
     } catch (error) {
+      // Handle any errors that occur during the fetch
       setError("An error occurred. Please try again.");
       console.error("Error generating quiz:", error);
     } finally {
-      setLoading(false);
+      setLoading(false); // Reset loading state
     }
   };
 
