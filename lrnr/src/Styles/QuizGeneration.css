@@ -12,11 +12,11 @@ body {
   background-color: #ffffff; /* Background color for contrast */
 }
 
-h1 {
-  text-align: center;
+#heading {
+  text-align: left;
   margin-bottom: 40px;
   color: #063661;
-  font-size: 2em; /* Ensure text is readable */
+  font-size: 3em; /* Ensure text is readable */
 }
 
 .form-group {

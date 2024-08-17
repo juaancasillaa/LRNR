@@ -31,12 +31,11 @@ import "../Styles/Results.css";
 
 const Results = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const { correctAnswersCount, results } = location.state || {};
 
-  const handleTryAnotherQuiz = () => {
-    navigate("/quiz-generation");
-  };
+  if (!results) {
+    return <div>No results available.</div>;
+  }
 
   return (
     <div className="results-page">

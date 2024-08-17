@@ -84,7 +84,7 @@ const QuizPage = () => {
 
     try {
       if (quiz) {
-        const response = await fetch("http://localhost:3000/results", {
+        const response = await fetch("http://localhost:3000/submit-quiz", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
