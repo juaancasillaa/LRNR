@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React from "react";
-import "../components/Home.css"; // Import CSS for styling
+import "../Styles/Home.css"; // Import CSS for styling
 import lrnrImage from "../components/lrnr-bk.png"; // Import the image
 import { Link } from "react-router-dom";
 import { motion as m } from "framer-motion";

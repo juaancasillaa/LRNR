@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../components/QuizPage.css";
+import "../Styles/QuizPage.css";
 
 const QuizPage = () => {
   const location = useLocation();
@@ -101,12 +101,11 @@ const QuizPage = () => {
         }
 
         const data = await response.json();
-        setEvaluation(data.results);
-        setCorrectAnswersCount(data.score);
+        console.log("Quiz submission response:", data);
 
         navigate("/results", {
           state: {
-            correctAnswersCount: data.score,
+            correctAnswersCount, // Pass the correctAnswersCount to the results page
             results: calculateResults(),
           },
         });
@@ -145,7 +144,7 @@ const QuizPage = () => {
   };
 
   const handleTryAnotherQuiz = () => {
-    navigate("/quiz-selection");
+    navigate("/quiz-generation");
   };
 
   if (!quiz || quiz.questions.length === 0) {
@@ -214,7 +213,11 @@ const QuizPage = () => {
               {loading ? "Checking..." : "Submit Answer"}
             </button>
             {currentQuestionIndex === quiz.numberOfQuestions - 1 && (
-              <button className="quiz-submit-button" onClick={handleSubmitQuiz}>
+              <button
+                className="quiz-submit-button"
+                onClick={handleSubmitQuiz}
+                disabled={loading}
+              >
                 Finish Quiz
               </button>
             )}

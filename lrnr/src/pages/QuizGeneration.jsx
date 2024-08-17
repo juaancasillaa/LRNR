@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../components/QuizGeneration.css";
+import "../Styles/QuizGeneration.css";
 
 const QuizGeneration = ({ setQuiz }) => {
   // State variables to store form input and status

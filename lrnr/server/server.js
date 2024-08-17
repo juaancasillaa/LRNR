@@ -12,11 +12,9 @@ app.use(bodyParser.json());
 
 // Mock implementation of getCorrectAnswersForQuiz
 const getCorrectAnswersForQuiz = (quizId) => {
-  // This is just an example; replace it with actual logic or data
   return [
     { question: "What is the capital of France?", answer: "Paris" },
     { question: "What is 2 + 2?", answer: "4" },
-    // Add more questions and answers as needed
   ];
 };
 
