@@ -1,34 +1,27 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import "../components/Results.css";
+import { useLocation } from "react-router-dom";
 
 const ResultsPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const { correctAnswersCount, results } = location.state || {};
 
-  const handleTryAnotherQuiz = () => {
-    navigate("/quiz-generation");
-  };
+  if (!results) {
+    return <div>No results available.</div>;
+  }
 
   return (
-    <div className="results-container">
-      <h1>lrnr</h1>
-      <p>You got {correctAnswersCount} questions right!</p>
-      {results &&
-        results.map((result, index) => (
-          <div key={index} className="result-item">
-            <h2>{result.question}</h2>
-            <p className="user-answer">Your Answer: {result.userAnswer}</p>
-            <p className="correct-answer">
-              Correct Answer: {result.correctAnswer}
-            </p>
-          </div>
+    <div>
+      <h1>Quiz Results</h1>
+      <p>Score: {correctAnswersCount}</p>
+      <ul>
+        {results.map((result, index) => (
+          <li key={index}>
+            <strong>Question:</strong> {result.question}<br />
+            <strong>Your Answer:</strong> {result.userAnswer}<br />
+            <strong>Correct Answer:</strong> {result.correctAnswer}<br />
+            <strong>Correct:</strong> {result.isCorrect ? "Yes" : "No"}
+          </li>
         ))}
-
-      <button className="try-again-button" onClick={handleTryAnotherQuiz}>
-        Try Another Quiz
-      </button>
+      </ul>
     </div>
   );
 };

@@ -103,23 +103,19 @@ app.post("/generate-quiz", async (req, res) => {
 // Route to handle quiz submission and scoring
 app.post("/submit-quiz", (req, res) => {
   const { quizId, userAnswers } = req.body;
-  // Fetch the correct answers for the quiz (mocked function here)
   const correctAnswers = getCorrectAnswersForQuiz(quizId);
-  // Compare user answers with correct answers
-  const results = correctAnswers.map((correctAnswer, index) => {
-    return {
-      question: correctAnswer.question,
-      userAnswer: userAnswers[index],
-      correctAnswer: correctAnswer.answer,
-      isCorrect:
-        userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
-    };
-  });
-  // Calculate the score based on correct answers
+
+  const results = correctAnswers.map((correctAnswer, index) => ({
+    question: correctAnswer.question,
+    userAnswer: userAnswers[index],
+    correctAnswer: correctAnswer.answer,
+    isCorrect: userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
+  }));
   const score = results.filter((result) => result.isCorrect).length;
-  // Send the results and score back to the client
+
   res.json({ results, score });
 });
+
 // Route to evaluate a single answer against the correct answer
 app.post("/evaluate-answer", async (req, res) => {
   const { question, userAnswer } = req.body;
@@ -169,6 +165,20 @@ app.post("/evaluate-answer", async (req, res) => {
     console.error("Error evaluating answer:", error);
     res.status(500).json({ error: "Failed to evaluate answer." });
   }
+});
+// Route to handle quiz submission and scoring
+app.post("/results", (req, res) => {
+  const { quizId, userAnswers } = req.body;
+  const correctAnswers = getCorrectAnswersForQuiz(quizId);
+  const results = correctAnswers.map((correctAnswer, index) => ({
+    question: correctAnswer.question,
+    userAnswer: userAnswers[index],
+    correctAnswer: correctAnswer.answer,
+    isCorrect:
+      userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
+  }));
+  const score = results.filter((result) => result.isCorrect).length;
+  res.json({ results, score });
 });
 // Start the Express server
 app.listen(port, () => {
