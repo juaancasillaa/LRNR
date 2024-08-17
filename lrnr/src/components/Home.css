@@ -1,110 +1,198 @@
-.home-container {
+.homeNav {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  margin-top: 40px;
-}
-
-.home-image {
-  max-width: 30%;
-  height: auto;
-  margin-bottom: 20px;
-  background-color: #063661;
-  top: 30px;
-}
-
-.home-text {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: normal;
-  color: gray;
-  max-width: 60%;
-}
-
-.home-button {
-  background-color: #3d9764;
-  color: #fff;
-  padding: 15px 30px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 50px;
-  margin-top: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.home-button:hover {
-  background-color: #02513c;
-}
-
-.home-features {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 40px;
-  position: relative;
-  padding: 10%;
-}
-
-.feature {
-  /* align-items: center; */
-  transform: translateX(-80px);
-}
-
-.icon {
-  font-size: 40px;
-  color: #50e1ba;
-  text-align: center;
-  margin-right: 100px;
-  margin-bottom: 25px;
-}
-
-.heading-tag {
-  text-align: center;
-  font-size: 15px;
-  margin-bottom: 15px;
-  margin-right: 100px;
-}
-
-.feature-description {
-  display: flex;
-  flex-direction: center;
   align-items: center;
-  text-align: left;
-  font-size: 15px;
-  margin-bottom: 15px;
-  font-size: 14px;
-  color: #666;
-  margin-top: 5px;
-  text-align: left;
-  max-width: 80%;
-  width: 100%;
 }
 
-@media (max-width: 667px) {
-  .home-image {
-    max-width: 50%;
-    top: 0px;
-  }
-  .feature {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-    transform: translateX(-5px);
-  }
-  .home-features {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
+.homeNav h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 50px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.homeNav img {
+  width: 25%; /* Adjust the width to make the image smaller */
+  height: auto; /* Ensure the aspect ratio is maintained */
+  max-width: 100%;
+  margin-top: 80px; /* Ensure responsiveness */
+}
+#hometext {
+  color: black;
+  width: 20px;
+}
+
+.homeNav button {
+  padding: 15px 25px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  background: #059576;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.homeNav button:hover {
+  background: #00b359;
+
+  opacity: 0.8;
+}
+
+.container {
+  margin-top: 120px;
+  display: flex;
+}
+.fa-3x {
+  color: #0ed1b1;
+}
+
+.box {
+  flex: 1;
+  height: auto;
+  margin: 50px;
+  border-radius: 20px;
+  /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.09); */
+  text-align: center;
+  color: #1a0315;
+}
+
+.box h2 {
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.box p {
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 100%;
+  margin: 0 auto 10px;
+}
+/* 
+.box-color1 {
+  background-color: #2d70ae;
+}
+
+.box-color2 {
+  background-color: #f0aa29;
+}
+
+.box-color3 {
+  background-color: #d6546e;
+} */
+
+@media only screen and (max-width: 480px) {
+  .homepage-top h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    width: 70%;
   }
 
-  .feature-description {
-    text-align: center;
+  .homepage-top button {
+    font-size: 1rem;
+    padding: 15px 25px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .box {
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  .box h2 {
+    font-size: 1.2rem;
+  }
+
+  .box p {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .homepage-top h1 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    width: 60%;
+  }
+
+  .homepage-top button {
+    font-size: 1.1rem;
+    padding: 15px 25px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .box {
+    margin: 15px auto;
+    width: 80%;
+  }
+
+  .box h2 {
+    font-size: 1.3rem;
+  }
+
+  .box p {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .homepage-top h1 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .homepage-top button {
+    font-size: 1.3rem;
+    padding: 15px 25px;
+  }
+
+  .box {
+    margin: 20px;
+  }
+
+  .box h2 {
+    font-size: 1.5rem;
+  }
+
+  .box p {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1225px) {
+  .homepage-top h1 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .homepage-top button {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+  }
+
+  .box {
+    margin: 30px;
+  }
+
+  .box h2 {
+    font-size: 1.8rem;
+  }
+
+  .box p {
+    font-size: 1rem;
+    padding: 15px;
   }
 }

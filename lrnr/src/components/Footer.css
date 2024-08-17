@@ -1,9 +1,10 @@
 .page-footer {
   background-color: #1f7dcf !important;
+  padding: 20px 0;
 }
 
 .footer-copyright {
-  background-color: #042a47;
+  background-color: #042a4700 !important;
   padding: 10px 0;
 }
 
@@ -26,8 +27,16 @@ h5.white-text {
   color: #ccc;
 }
 
-a.grey-text.text-lighten-3:hover {
+a.grey-text.text-lighten-3 {
+  color: #ccc;
+  text-decoration: none;
+}
+
+a.grey-text.text-lighten-3:hover,
+a.grey-text.text-lighten-3:focus {
   color: #2e8bc0;
+  outline: 2px solid #2e8bc0; /* Add a focus outline */
+  outline-offset: 2px;
 }
 
 /* Responsive design */
