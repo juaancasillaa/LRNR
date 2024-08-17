@@ -59,7 +59,7 @@ const QuizGeneration = ({ setQuiz }) => {
 
   return (
     <div className="quiz-container">
-      <h1>Quiz Generation Options</h1>
+      <h1 id="heading">Quiz Generation Options</h1>
       <p>
         Please choose your preferences below to generate your own personalized
         quiz.
