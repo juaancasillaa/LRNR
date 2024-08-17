@@ -102,7 +102,7 @@
   }
 
   .box {
-    margin: 10px auto;
+    margin: 20px auto;
     width: 90%;
   }
 
@@ -114,6 +114,12 @@
     font-size: 0.8rem;
     padding: 10px;
   }
+  .homeNav img {
+    width: 55%;
+    height: auto;
+    max-width: 100%;
+    margin-top: 80px;
+}
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
