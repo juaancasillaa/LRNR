@@ -5,29 +5,53 @@ import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 const Navbar = () => {
-  const [Mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(false);
+
   return (
-    <>
-      <nav className="navbar">
-        <Link to="/" className="Quiz">
-          <h1 className="logo">lrnr</h1>
-        </Link>
-        <ul
-          className={Mobile ? "nav-links-mobile" : "nav-links"}
-          onClick={() => setMobile(false)}
-        >
-          <Link to="/quiz-generation" className="Quiz">
-            <li>Quiz</li>
+    <nav className="navbar" role="navigation">
+      <Link to="/" className="logo" aria-label="Home">
+        <h1 className="logo-h1">lrnr</h1>
+      </Link>
+      <ul
+        className={mobile ? "nav-links-mobile" : "nav-links"}
+        onClick={() => setMobile(false)}
+        role="menubar"
+      >
+        <li role="none">
+          <Link
+            to="/quiz-generation"
+            className="nav-link"
+            role="menuitem"
+            aria-label="Quiz Page"
+          >
+            Quiz
           </Link>
-          <Link to="/Account" className="Account">
-            <li>Account</li>
+        </li>
+        <li role="none">
+          <Link
+            to="/account"
+            className="nav-link"
+            role="menuitem"
+            aria-label="Account Page"
+          >
+            Account
           </Link>
-        </ul>
-        <button className="mobile-menu-icon" onClick={() => setMobile(!Mobile)}>
-          {Mobile ? <ImCross /> : <FaBars />}
-        </button>
-      </nav>
-    </>
+        </li>
+      </ul>
+      <button
+        className="mobile-menu-icon"
+        onClick={() => setMobile(!mobile)}
+        aria-label={mobile ? "Close menu" : "Open menu"}
+        aria-expanded={mobile}
+      >
+        {mobile ? (
+          <ImCross aria-hidden="true" />
+        ) : (
+          <FaBars aria-hidden="true" />
+        )}
+      </button>
+    </nav>
   );
 };
+
 export default Navbar;

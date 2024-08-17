@@ -7,10 +7,6 @@ body {
 }
 
 .quiz-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; /* Align items to the start (left) */
   padding: 80px;
   box-sizing: border-box;
   background-color: #ffffff; /* Background color for contrast */
@@ -20,6 +16,7 @@ h1 {
   text-align: center;
   margin-bottom: 40px;
   color: #063661;
+  font-size: 2em; /* Ensure text is readable */
 }
 
 .form-group {
@@ -30,11 +27,16 @@ h1 {
 .custom-label {
   display: block;
   font-size: 2em !important; /* Your desired font size */
-  color: #063661;
+  color: #1b929c;
   margin-bottom: 15px;
   margin-top: 100px;
   font-weight: bold;
-  color: #1b929c;
+}
+
+/* Ensure labels are readable and accessible */
+.custom-label,
+.form-control {
+  background-color: #fff; /* Background color for visibility */
 }
 
 .form-control {
@@ -43,14 +45,17 @@ h1 {
   padding: 10px;
   border-bottom: 1px solid #9d9a9a;
   font-size: 16px;
+  color: #333; /* Ensure text is readable */
   background-color: #fff; /* Background color for visibility */
 }
 
+/* Improved focus styles for better accessibility */
 .form-control:focus {
   border-color: #063661;
-  outline: none;
+  outline: 3px solid #063661; /* Added outline for better focus visibility */
 }
 
+/* Styles for submit button */
 .submit-btn {
   display: block;
   margin-top: 50px; /* Add space above and below */
@@ -63,12 +68,15 @@ h1 {
   align-self: flex-start; /* Move button to the left */
 }
 
+/* Improve hover state for visibility */
 .submit-btn:hover {
   background-color: rgb(6, 149, 116); /* Darker green on hover */
 }
 
+/* Error message styling */
 .error-message {
   color: red;
   text-align: center;
   margin-top: 10px;
+  font-size: 1.2em; /* Increase font size for better readability */
 }
