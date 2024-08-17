@@ -1,49 +1,54 @@
 .account-page {
-  padding: 190px;
+  padding: 40px;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  margin-bottom: 20%;
 }
 
 .account-container {
   width: 100%;
-  max-width: 1200px; /* Maximum width for content */
-  background: #fff;
+  max-width: 1200px;
+  background: #ffffff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 .account-title {
   margin-bottom: 20px;
-  font-size: 100px;
+  font-size: 36px;
   color: #028f62;
-  text-align: left; /* Center the title */
+  text-align: left;
 }
 
 .account-info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px; /* Space between items */
+  gap: 20px;
 }
 
 .account-row {
-  flex: 1; /* Allow rows to grow equally */
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background: #ffffff;
   padding: 20px;
-  text-align: center; /* Center text content */
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.account-row:focus-within {
+  border-color: #028f62;
+  outline: none;
 }
 
 .icon {
   font-size: 50px;
   color: #70eed5;
-  text-shadow: 2px 2px 2px #0003;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .text-content h2 {
@@ -69,42 +74,42 @@
   font-size: 16px;
   color: #333;
 }
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .account-info {
-    flex-direction: column; /* Stack rows vertically on smaller screens */
+    flex-direction: column;
     align-items: center;
   }
 
   .account-title {
-    text-align: center; /* Center the title on smaller screens */
+    text-align: center;
   }
 
   .account-row {
-    width: 100%; /* Full width for each row */
-    max-width: 600px; /* Optional max-width for readability */
+    width: 100%;
+    max-width: 600px;
   }
 }
 
 @media (max-width: 480px) {
   .account-page {
-    padding: 20px; /* Reduce padding on smaller screens */
+    padding: 20px;
   }
 
   .account-title {
-    font-size: 20px; /* Smaller font size for title */
+    font-size: 24px;
   }
 
   .icon {
-    font-size: 40px; /* Smaller icon size */
+    font-size: 40px;
   }
 
   .text-content h2 {
-    font-size: 16px; /* Smaller heading size */
+    font-size: 16px;
   }
 
   .text-content p,
   .text-content li {
-    font-size: 14px; /* Smaller text size */
+    font-size: 14px;
   }
 }

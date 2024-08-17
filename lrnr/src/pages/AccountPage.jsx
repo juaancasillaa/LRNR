@@ -1,6 +1,6 @@
 import React from "react";
-import { FaFire, FaList, FaUser } from "react-icons/fa"; // Import the new icons
-import "../components/AccountPage.css";
+import { motion as m } from "framer-motion"; // Import Framer Motion
+import "../components/AccountPage.css"; // Ensure this CSS file is updated if needed
 
 const AccountPage = () => {
   // Generate a random LRNR level between 1 and 5
@@ -10,36 +10,77 @@ const AccountPage = () => {
   const quizzes = ["JavaScript Basics", "React Essentials", "Advanced CSS"];
 
   return (
-    <div className="account-page">
-      <h1 className="account-title">Account</h1>
+    <m.div
+      className="account-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+      role="main" // Define the main content area
+    >
+      <m.h1
+        className="account-title"
+        initial={{ y: "-100%", opacity: 0 }}
+        animate={{ y: "0%", opacity: 1 }}
+        transition={{ duration: 0.75, ease: "easeOut" }}
+        aria-level="1" // Use aria-level to provide heading level information
+      >
+        Account
+      </m.h1>
       <div className="account-info">
-        <div className="account-row">
-          <FaFire className="icon" />
+        <m.div
+          className="account-row"
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: "0%", opacity: 1 }}
+          transition={{ duration: 0.75, ease: "easeOut" }}
+          aria-labelledby="streak"
+          tabIndex="0" // Make the div focusable
+        >
+          <i
+            className="fa-solid fa-fire-flame-curved fa-3x"
+            aria-hidden="true"
+          ></i>{" "}
+          {/* Font Awesome icon for Fire */}
           <div className="text-content">
-            <h2>Streak</h2>
+            <h2 id="streak">Streak</h2>
             <p>7 days</p>
           </div>
-        </div>
-        <div className="account-row">
-          <FaList className="icon" />
+        </m.div>
+        <m.div
+          className="account-row"
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: "0%", opacity: 1 }}
+          transition={{ duration: 0.75, ease: "easeOut" }}
+          aria-labelledby="platinum-quizzes"
+          tabIndex="0" // Make the div focusable
+        >
+          <i className="fa-solid fa-table-list fa-3x" aria-hidden="true"></i>{" "}
+          {/* Font Awesome icon for List */}
           <div className="text-content">
-            <h2>Platinum Quizzes</h2>
+            <h2 id="platinum-quizzes">Platinum Quizzes</h2>
             <ul>
               {quizzes.slice(0, 3).map((quiz, index) => (
                 <li key={index}>{quiz}</li>
               ))}
             </ul>
           </div>
-        </div>
-        <div className="account-row">
-          <FaUser className="icon" />
+        </m.div>
+        <m.div
+          className="account-row"
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          transition={{ duration: 0.75, ease: "easeOut" }}
+          aria-labelledby="lrnr-level"
+          tabIndex="0" // Make the div focusable
+        >
+          <i className="fa-solid fa-user fa-3x" aria-hidden="true"></i>{" "}
+          {/* Font Awesome icon for User */}
           <div className="text-content">
-            <h2>LRNR Level: {lrnrLevel}</h2>
+            <h2 id="lrnr-level">LRNR Level: {lrnrLevel}</h2>
             <p>150/200 xp</p>
           </div>
-        </div>
+        </m.div>
       </div>
-    </div>
+    </m.div>
   );
 };
 

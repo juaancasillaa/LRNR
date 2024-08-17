@@ -1,56 +1,92 @@
 // src/pages/Home.jsx
 import React from "react";
 import "../components/Home.css"; // Import CSS for styling
-import lrnrImage from "../components/image-removebg-preview.png"; // Import the image
+import lrnrImage from "../components/lrnr-bk.png"; // Import the image
+import { Link } from "react-router-dom";
+import { motion as m } from "framer-motion";
+import "@fortawesome/fontawesome-free/css/all.min.css"; // Ensure Font Awesome is imported
 
-const Home = () => {
+export default function HomePage() {
   return (
-    <div className="home-container">
-      <img
-        src={lrnrImage} // Use the imported image
-        alt="Centered"
-        className="home-image"
-      />
-      <h2 className="home-text">
-        Your guided path to programming enlightenment
-      </h2>
-      <button className="home-button">Begin journey</button>
-      <div className="home-features">
-        <div className="feature">
-          <i className="fas fa-bolt icon"></i> {/* Lightning icon */}
-          <p className="heading-tag">Personalized Quizzes</p>
-          <p className="feature-description">
+    <m.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0%", opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+    >
+      <div className="homeNav">
+        <img src={lrnrImage} alt="LRNR logo" />
+        <h1>
+          Your guided path to{" "}
+          <span id="hometext">programming enlightenment</span>
+        </h1>
+        <Link to="/quiz-generation">
+          <button>BEGIN JOURNEY</button>
+        </Link>
+      </div>
+
+      <div className="container">
+        <m.div
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          className="box box-color1"
+        >
+          <i className="fa-solid fa-bolt-lightning fa-3x"></i>
+          <h2>Personalized Quizzes</h2>
+          <p>
             Greetings, young padawan. Are you ready to embark on a journey of
-            personalized enlightenment through the art of coding? Our app, can
+            personalized enlightenment through the art of coding? Our app can
             create custom quizzes that align with your coding skills and
             interests. Whether you are a novice or a master, our system can
             generate questions that will test your proficiency in programming
-            languages, tools, and concepts
+            languages, tools, and concepts!
           </p>
-        </div>
-        <div className="feature">
-          <i className="fas fa-dollar-sign icon"></i> {/* Cash icon */}
-          <p className="heading-tag">Rewarding</p>
-          <p className="feature-description">
+        </m.div>
+
+        <m.div
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          className="box box-color2"
+        >
+          <i className="fa-solid fa-money-bills fa-3x"></i>
+          <h2>Rewarding</h2>
+          <p>
             Our app is designed to be both challenging and rewarding, so you can
             learn new concepts while enjoying the process. With our personalized
             quiz app, you can track your progress, compete with your peers, and
             discover new areas of expertise. The journey of a thousand lines of
-            code begins with a single keystroke
+            code begins with a single keystroke!
           </p>
-        </div>
-        <div className="feature">
-          <i className="fas fa-user icon"></i> {/* Profile icon */}
-          <p className="heading-tag">Personal SME</p>
-          <p className="feature-description">
+        </m.div>
+
+        <m.div
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          className="box box-color3"
+        >
+          <i className="fa-solid fa-user fa-3x"></i>
+          <h2>Personal SME</h2>
+          <p>
             Welcome to the path of knowledge. Our app is like having a personal
             subject matter expert at your side, guiding you on your journey
-            towards wisdom
+            towards wisdom!
           </p>
-        </div>
+        </m.div>
       </div>
-    </div>
+    </m.div>
   );
-};
-
-export default Home;
+}
