@@ -49,6 +49,7 @@
     "@testing-library/react": "^16.0.0",
     "cypress": "^13.13.3",
     "jest": "^27.5.1"
-  }
+  },
+  "proxy": "http://localhost:5050"
 }
 
