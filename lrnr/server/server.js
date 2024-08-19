@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config(); // Load API keys from .env file
+const path = require("path");
 
 const app = express();
 const port = 5050;
