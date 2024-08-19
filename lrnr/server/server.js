@@ -17,13 +17,13 @@ const getCorrectAnswersForQuiz = (quizId) => {
   ];
 };
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/build/', 'index.html'));
-});
-
 app.use(cors({
   origin: '*',
 }));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build/', 'index.html'));
+});
 
 // Route to generate a quiz based on the provided parameters
 app.post("/generate-quiz", async (req, res) => {
