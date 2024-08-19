@@ -3,28 +3,24 @@ import { useNavigate } from "react-router-dom";
 import "../Styles/QuizGeneration.css";
 
 const QuizGeneration = ({ setQuiz }) => {
-  // State variables to store form input and status
-  const [topic, setTopic] = useState(""); // Selected topic for the quiz
-  const [expertise, setExpertise] = useState(""); // Selected expertise level
-  const [numberOfQuestions, setNumberOfQuestions] = useState("1"); // Number of questions in the quiz
-  const [style, setStyle] = useState(""); // Style of the quiz
-  const [error, setError] = useState(null); // Error message if something goes wrong
-  const [loading, setLoading] = useState(false); // Loading state to show spinner or disable button
-  const navigate = useNavigate(); // Hook to programmatically navigate
+  const [topic, setTopic] = useState("");
+  const [expertise, setExpertise] = useState("");
+  const [numberOfQuestions, setNumberOfQuestions] = useState("1");
+  const [style, setStyle] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  // Function to handle form submission
   const handleSubmit = async () => {
-    // Validate required fields
     if (!topic || !expertise || !style) {
       setError("Please fill out all required fields.");
       return;
     }
 
-    setError(null); // Clear any previous errors
-    setLoading(true); // Set loading state to true
+    setError(null);
+    setLoading(true);
 
     try {
-      // Send form data to the server
       const response = await fetch("http://localhost:3000/generate-quiz", {
         method: "POST",
         headers: {
@@ -38,22 +34,19 @@ const QuizGeneration = ({ setQuiz }) => {
         }),
       });
 
-      // Check if the response is okay
       if (!response.ok) {
         const errorText = await response.text();
         throw new Error(`Failed to generate quiz: ${errorText}`);
       }
 
-      // Parse the response JSON and set the quiz data
       const quiz = await response.json();
       setQuiz(quiz);
-      navigate("/quiz", { state: { quiz } }); // Navigate to the quiz page with quiz data
+      navigate("/quiz", { state: { quiz } });
     } catch (error) {
-      // Handle any errors that occur during the fetch
       setError("An error occurred. Please try again.");
       console.error("Error generating quiz:", error);
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
@@ -65,10 +58,9 @@ const QuizGeneration = ({ setQuiz }) => {
         quiz.
       </p>
       <form
-        role="form"
         aria-labelledby="quiz-options"
         onSubmit={(e) => {
-          e.preventDefault(); // Prevent default form submission
+          e.preventDefault();
           handleSubmit();
         }}
       >

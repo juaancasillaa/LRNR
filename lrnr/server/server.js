@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config(); // Load API keys from .env file
+
 const app = express();
 const port = 3000;
 // Middleware to enable CORS and parse JSON bodies
@@ -107,7 +108,8 @@ app.post("/submit-quiz", (req, res) => {
     question: correctAnswer.question,
     userAnswer: userAnswers[index],
     correctAnswer: correctAnswer.answer,
-    isCorrect: userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
+    isCorrect:
+      userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
   }));
   const score = results.filter((result) => result.isCorrect).length;
 

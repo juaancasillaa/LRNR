@@ -1,18 +1,18 @@
-.homeNav {
+.home {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.homeNav h1 {
+.home h1 {
   font-size: 2rem;
   font-weight: 400;
   text-align: center;
   margin: 50px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
-.homeNav img {
+.home img {
   width: 25%; /* Adjust the width to make the image smaller */
   height: auto; /* Ensure the aspect ratio is maintained */
   max-width: 100%;
@@ -23,7 +23,7 @@
   width: 20px;
 }
 
-.homeNav button {
+.home button {
   padding: 15px 25px;
   font-size: 1.5rem;
   font-weight: 600;
@@ -72,18 +72,6 @@
   width: 100%;
   margin: 0 auto 10px;
 }
-/* 
-.box-color1 {
-  background-color: #2d70ae;
-}
-
-.box-color2 {
-  background-color: #f0aa29;
-}
-
-.box-color3 {
-  background-color: #d6546e;
-} */
 
 @media only screen and (max-width: 480px) {
   .homepage-top h1 {
@@ -119,7 +107,7 @@
     height: auto;
     max-width: 100%;
     margin-top: 80px;
-}
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {

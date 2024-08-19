@@ -13,7 +13,7 @@ export default function HomePage() {
       animate={{ y: "0%", opacity: 1 }}
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
-      <div className="homeNav">
+      <div className="home">
         <img src={lrnrImage} alt="LRNR logo" />
         <h1>
           Your guided path to{" "}
