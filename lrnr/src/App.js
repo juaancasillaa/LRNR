@@ -23,7 +23,7 @@ const ParentComponent = () => {
       <Route path="results" element={<ResultsPage />} />
       <Route path="home" element={<HomePage />} />
       <Route path="account" element={<AccountPage />} />
-      <Route path="/" element={<HomePage />} />
+      <Route index element={<HomePage />} />
     </Routes>
   );
 };
