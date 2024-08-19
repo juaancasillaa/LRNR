@@ -15,6 +15,11 @@ const getCorrectAnswersForQuiz = (quizId) => {
     { question: "What is 2 + 2?", answer: "4" },
   ];
 };
+
+app.use(cors({
+  origin: '*',
+}));
+
 // Route to generate a quiz based on the provided parameters
 app.post("/generate-quiz", async (req, res) => {
   const { topic, expertise, numberOfQuestions, style } = req.body;
