@@ -17,7 +17,7 @@ const getCorrectAnswersForQuiz = (quizId) => {
 };
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/server/build/', 'index.html'));
+  res.sendFile(path.join(__dirname, '/build/', 'index.html'));
 });
 
 app.use(cors({
