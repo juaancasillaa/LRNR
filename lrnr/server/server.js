@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config(); // Load API keys from .env file
+
 const app = express();
 const port = 3000;
 // Middleware to enable CORS and parse JSON bodies
@@ -9,11 +10,9 @@ app.use(cors());
 app.use(bodyParser.json());
 // Mock implementation of getCorrectAnswersForQuiz
 const getCorrectAnswersForQuiz = (quizId) => {
-  // This is just an example; replace it with actual logic or data
   return [
     { question: "What is the capital of France?", answer: "Paris" },
     { question: "What is 2 + 2?", answer: "4" },
-    // Add more questions and answers as needed
   ];
 };
 // Route to generate a quiz based on the provided parameters
@@ -109,7 +108,8 @@ app.post("/submit-quiz", (req, res) => {
     question: correctAnswer.question,
     userAnswer: userAnswers[index],
     correctAnswer: correctAnswer.answer,
-    isCorrect: userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
+    isCorrect:
+      userAnswers[index].toLowerCase() === correctAnswer.answer.toLowerCase(),
   }));
   const score = results.filter((result) => result.isCorrect).length;
 

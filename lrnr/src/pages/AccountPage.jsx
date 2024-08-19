@@ -1,6 +1,6 @@
 import React from "react";
 import { motion as m } from "framer-motion"; // Import Framer Motion
-import "../components/AccountPage.css"; // Ensure this CSS file is updated if needed
+import "../Styles/AccountPage.css"; // Ensure this CSS file is updated if needed
 
 const AccountPage = () => {
   // Generate a random LRNR level between 1 and 5

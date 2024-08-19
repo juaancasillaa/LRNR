@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../components/QuizPage.css";
+import "../Styles/QuizPage.css";
 
 const QuizPage = () => {
   const location = useLocation();
@@ -81,7 +81,7 @@ const QuizPage = () => {
   const handleSubmitQuiz = async () => {
     setLoading(true);
     setError(null);
-  
+
     try {
       if (quiz) {
         const response = await fetch("http://localhost:3000/submit-quiz", {
@@ -94,20 +94,19 @@ const QuizPage = () => {
             userAnswers,
           }),
         });
-  
+
         if (!response.ok) {
           const errorText = await response.text();
           throw new Error(`Failed to submit quiz: ${errorText}`);
         }
-  
+
         const data = await response.json();
-        setEvaluation(data.results);
-        setCorrectAnswersCount(data.score);
-  
+        console.log("Quiz submission response:", data);
+
         navigate("/results", {
           state: {
-            correctAnswersCount: data.score,
-            results: data.results, // Make sure results are included
+            correctAnswersCount, // Pass the correctAnswersCount to the results page
+            results: calculateResults(),
           },
         });
       } else {
@@ -122,7 +121,7 @@ const QuizPage = () => {
       setLoading(false);
     }
   };
-  
+
   const calculateResults = () => {
     return quiz
       ? quiz.questions.map((question, index) => ({
@@ -145,7 +144,7 @@ const QuizPage = () => {
   };
 
   const handleTryAnotherQuiz = () => {
-    navigate("/quiz-selection");
+    navigate("/quiz-generation");
   };
 
   if (!quiz || quiz.questions.length === 0) {
@@ -214,7 +213,11 @@ const QuizPage = () => {
               {loading ? "Checking..." : "Submit Answer"}
             </button>
             {currentQuestionIndex === quiz.numberOfQuestions - 1 && (
-              <button className="quiz-submit-button" onClick={handleSubmitQuiz}>
+              <button
+                className="quiz-submit-button"
+                onClick={handleSubmitQuiz}
+                disabled={loading}
+              >
                 Finish Quiz
               </button>
             )}
