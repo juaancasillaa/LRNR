@@ -24,7 +24,7 @@ Navigate to the project directory:
 Install the dependencies:
 - npm instal
 Start the development server:
-- npm start
+- npm start.
 
 ### Usage
 - Creating Quizzes: Navigate to the Quiz Generation page, fill in the necessary details, and submit the form.
