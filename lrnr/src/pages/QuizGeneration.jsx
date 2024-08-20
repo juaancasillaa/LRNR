@@ -21,7 +21,7 @@ const QuizGeneration = ({ setQuiz }) => {
     setLoading(true);
 
     try {
-      const response = await fetch("/quiz-generation", {
+      const response = await fetch("https://lrnr-vwoq.vercel.app//quiz-generation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
