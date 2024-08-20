@@ -21,7 +21,7 @@ const QuizGeneration = ({ setQuiz }) => {
     setLoading(true);
 
     try {
-      const response = await fetch("/generate-quiz", {
+      const response = await fetch("/quiz-generation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
