@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/QuizGeneration.css";
-
 const QuizGeneration = ({ setQuiz }) => {
   const [topic, setTopic] = useState("");
   const [expertise, setExpertise] = useState("");
@@ -10,18 +9,15 @@ const QuizGeneration = ({ setQuiz }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
   const handleSubmit = async () => {
     if (!topic || !expertise || !style) {
       setError("Please fill out all required fields.");
       return;
     }
-
     setError(null);
     setLoading(true);
-
     try {
-      const response = await fetch("https://lrnr-2432.onrender.com/quiz-generation", {
+      const response = await fetch("http://localhost:3000/generate-quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,12 +29,10 @@ const QuizGeneration = ({ setQuiz }) => {
           style,
         }),
       });
-
       if (!response.ok) {
         const errorText = await response.text();
         throw new Error(`Failed to generate quiz: ${errorText}`);
       }
-
       const quiz = await response.json();
       setQuiz(quiz);
       navigate("/quiz", { state: { quiz } });
@@ -49,7 +43,6 @@ const QuizGeneration = ({ setQuiz }) => {
       setLoading(false);
     }
   };
-
   return (
     <div className="quiz-container">
       <h1 id="heading">Quiz Generation Options</h1>
@@ -149,5 +142,4 @@ const QuizGeneration = ({ setQuiz }) => {
     </div>
   );
 };
-
 export default QuizGeneration;
