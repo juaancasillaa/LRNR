@@ -41,7 +41,7 @@ const QuizPage = () => {
         const question = quiz.questions[currentQuestionIndex].question;
         const userAnswer = userAnswers[currentQuestionIndex];
 
-        const response = await fetch("http://localhost:3000/evaluate-answer", {
+        const response = await fetch("https://learner-backend-12y8im7ro-juaancasillaas-projects.vercel.app/evaluate-answer", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const QuizPage = () => {
 
     try {
       if (quiz) {
-        const response = await fetch("http://localhost:3000/submit-quiz", {
+        const response = await fetch("https://learner-backend-12y8im7ro-juaancasillaas-projects.vercel.app/submit-quiz", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

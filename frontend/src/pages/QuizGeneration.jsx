@@ -21,7 +21,7 @@ const QuizGeneration = ({ setQuiz }) => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://lrnr-open-ai-backend.vercel.app/generate-quiz", {
+      const response = await fetch("https://learner-backend-12y8im7ro-juaancasillaas-projects.vercel.app/generate-quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
