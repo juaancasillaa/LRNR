@@ -4,7 +4,9 @@
 }
 
 .footer-copyright {
-  background-color: #042a4700 !important;
+  background-color: #1a63a341 !important;
+  position: relative;
+  bottom: -19px;
   padding: 10px 0;
 }
 
